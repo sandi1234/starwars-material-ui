@@ -6,7 +6,7 @@ const PersonInfo = ({ person }) => {
   const classes = personStyle()
   const not = 'n/a'
   return (
-    <Grid item item lg={4} md={4} sm={4} xs={12}>
+    <Grid item lg={4} md={4} sm={4} xs={12}>
       {person.name != not ? (
         <Paper className={classes.infoPageBG}>
           <Typography align='center' variant='string'>

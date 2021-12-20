@@ -24,7 +24,7 @@ const PageNumber = ({ pageNumber, path, spaceing }) => {
       </MobileWrapper>
       <DesktopWrapper>
         {pageNumbers.map((pageID) => (
-          <Link key={pageID} href={`${path}${pageID}`}>
+          <Link key={pageID} passHref href={`${path}${pageID}`}>
             <Button
               style={{ margin: spaceing }}
               // variant={router.query.id == pageID ? 'contained' : 'outlined'}

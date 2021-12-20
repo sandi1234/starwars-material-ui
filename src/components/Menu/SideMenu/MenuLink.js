@@ -22,7 +22,7 @@ const MenuLink = ({ menuLink }) => {
   // console.log('side: ' + page)
   // console.log('side tekst: ' + menuRoute)
   return (
-    <Link href={menuLink.link} underline='none'>
+    <Link href={menuLink.link} passHref underline='none'>
       <Paper
         className={
           page == menuRoute ? classes.sideMenuActive : classes.sideMenu
