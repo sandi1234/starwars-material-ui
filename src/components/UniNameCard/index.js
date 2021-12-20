@@ -1,11 +1,11 @@
 import React from 'react'
+import Link from 'next/link'
 import Name from './Name'
-import { Paper, Link } from '@mui/material'
-import styles from '../../../styles/Custom.module.css'
+import { Paper } from '@mui/material'
 import { globalStyle } from '../../muiGlobalStyles/style'
 
 const Index = ({ data, API_URL }) => {
-  console.log(API_URL)
+  // console.log(API_URL)
   const classes = globalStyle()
 
   let url = ''
@@ -17,7 +17,7 @@ const Index = ({ data, API_URL }) => {
   }
 
   return (
-    <Link href={url} underline='none'>
+    <Link href={url} passHref underline='none'>
       <Paper className={classes.linkData}>
         <Name name={data.name} />
       </Paper>

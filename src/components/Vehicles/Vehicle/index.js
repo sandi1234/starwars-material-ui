@@ -1,15 +1,18 @@
 import React from 'react'
 import Info from './Info'
 import ImageUrl from './ImageUrl'
+import InfoPageMenu from '../../Menu/InfoPageMenu'
 import { Grid } from '@mui/material'
-import customStyles from '../../../../styles/Custom.module.css'
+import { vehicleStyle } from './style'
 
 const Index = ({ data }) => {
+  const classes = vehicleStyle()
   const image = undefined
   return (
-    <div className={` ${customStyles.centerContainer}`}>
-      <div className={customStyles.centerContent}>
-        <Grid container>
+    <div className={classes.root}>
+      <div className={classes.wrapper}>
+        <Grid container spacing={2}>
+          <InfoPageMenu />
           <ImageUrl image={image} name={data.name} />
           <Info data={data} />
         </Grid>

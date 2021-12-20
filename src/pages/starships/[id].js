@@ -1,10 +1,9 @@
 import axios from 'axios'
 import Starship from '../../components/Starships/Starship'
-import customStyles from '../../../styles/Custom.module.css'
 
 const StarshipData = ({ data }) => {
   return (
-    <div className={customStyles.ppp}>
+    <div>
       <Starship data={data} />
     </div>
   )

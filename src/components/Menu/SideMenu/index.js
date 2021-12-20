@@ -1,23 +1,21 @@
 import React from 'react'
 import MenuLink from './MenuLink'
 import MenuHeading from './MenuHeading'
-import { sideMenu } from './style'
-import wrapperFix from '../../../../styles/CustomFix.module.css'
+import { RootWrapper } from './style'
 
 const Index = () => {
-  const classes = sideMenu()
   const menuLinks = [
     { link: '/people', linkTxt: 'people' },
-    { link: '/starships', linkTxt: 'Starhips' },
-    { link: '/vehicles', linkTxt: 'Vehicles' },
+    { link: '/starships', linkTxt: 'starhips' },
+    { link: '/vehicles', linkTxt: 'vehicles' },
   ]
   return (
-    <div className={wrapperFix.wrapperFix}>
+    <RootWrapper>
       <MenuHeading />
       {menuLinks.map((menuLink) => (
         <MenuLink key={menuLink.link} menuLink={menuLink} />
       ))}
-    </div>
+    </RootWrapper>
   )
 }
 

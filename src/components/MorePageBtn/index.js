@@ -1,14 +1,15 @@
 import React from 'react'
 import MoreLink from './MoreLink'
-import styles from '../../../styles/Custom.module.css'
+import { moreBtnStyle } from './style'
 
 import { useRouter } from 'next/router'
 
 const Index = () => {
+  const classes = moreBtnStyle()
   const router = useRouter()
   // console.log(router)
   return (
-    <div className={`${styles.center} mt-3`}>
+    <div className={classes.btnWrapper}>
       <MoreLink localMoreLink={router.pathname} />
     </div>
   )

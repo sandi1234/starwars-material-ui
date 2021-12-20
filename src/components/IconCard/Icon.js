@@ -1,12 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import Styles from '../../../styles/Custom.module.css'
+import { iconCardStyle } from './style'
 
 const Icon = ({ icon, localLink }) => {
+  const classes = iconCardStyle()
   return (
-    <div className={Styles.pointer}>
+    <div>
       <Link href={localLink} passHref>
-        <i className={`${icon} ${Styles.iconSize}`}></i>
+        <i className={`${icon} ${classes.iconStyle}`}></i>
       </Link>
     </div>
   )

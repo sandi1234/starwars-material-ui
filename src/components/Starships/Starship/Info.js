@@ -1,105 +1,130 @@
 import React from 'react'
-import { Grid, List, ListItem } from '@mui/material'
-import customStyles from '../../../../styles/Custom.module.css'
+import { Grid, Paper, Typography } from '@mui/material'
+import { starshipStyle } from './style'
 
 const Info = ({ data }) => {
+  const classes = starshipStyle()
   const not = 'n/a'
   return (
     <Grid item lg={6} md={6} sm={6} xs={12}>
-      <List className={customStyles.center}>
-        {data.name != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+      {data.name != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Name: {data.name}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.model != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.model != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Model: {data.model}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.manufacturer != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.manufacturer != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Manufacturer: {data.manufacturer}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.cost_in_credits != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.cost_in_credits != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Credits: {data.cost_in_credits}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.length != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.length != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Length: {data.length}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.max_atmosphering_speed != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.max_atmosphering_speed != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Max Speed: {data.max_atmosphering_speed}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.crew != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.crew != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Crew: {data.crew}
-          </ListItem>
-        ) : (
-          ''
-        )}
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
 
-        {data.passengers != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+      {data.passengers != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Passengers: {data.passengers}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.cargo_capacity != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.cargo_capacity != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Cargo Capacity: {data.cargo_capacity}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.consumables != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.consumables != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Consumables: {data.consumables}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.hyperdrive_rating != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.hyperdrive_rating != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Hyperdrive Rating: {data.hyperdrive_rating}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.MGLT != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.MGLT != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             MGLT: {data.MGLT}
-          </ListItem>
-        ) : (
-          ''
-        )}
-        {data.starship_class != not ? (
-          <ListItem className={`${customStyles.cardBG} p-2 m-1`}>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
+      {data.starship_class != not ? (
+        <Paper className={classes.infoPageBG}>
+          <Typography align='center' variant='string'>
             Starship Class: {data.starship_class}
-          </ListItem>
-        ) : (
-          ''
-        )}
-      </List>
+          </Typography>
+        </Paper>
+      ) : (
+        ''
+      )}
     </Grid>
   )
 }

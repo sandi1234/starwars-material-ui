@@ -2,9 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import { Button } from '@mui/material'
 import { useRouter } from 'next/router'
-import styles from '../../../styles/Custom.module.css'
+import { paginationStyle, MobileWrapper, DesktopWrapper } from './style'
 
 const PageNumber = ({ pageNumber, path, spaceing }) => {
+  const classes = paginationStyle()
+
   const router = useRouter()
   const pages = Math.ceil(pageNumber / 10)
 
@@ -15,17 +17,28 @@ const PageNumber = ({ pageNumber, path, spaceing }) => {
 
   return (
     <>
-      {pageNumbers.map((pageID) => (
-        <Link key={pageID} href={`${path}${pageID}`}>
-          <Button
-            style={{ margin: spaceing }}
-            variant={router.query.id == pageID ? 'contained' : 'outlined'}
-            className={router.query.id == pageID ? '' : styles.paginationNumber}
-          >
-            {pageID}
-          </Button>
-        </Link>
-      ))}
+      <MobileWrapper>
+        <Button style={{ margin: spaceing }} className={classes.btnStyleActive}>
+          {router.query.id} / {pages}
+        </Button>
+      </MobileWrapper>
+      <DesktopWrapper>
+        {pageNumbers.map((pageID) => (
+          <Link key={pageID} href={`${path}${pageID}`}>
+            <Button
+              style={{ margin: spaceing }}
+              // variant={router.query.id == pageID ? 'contained' : 'outlined'}
+              className={
+                router.query.id == pageID
+                  ? classes.btnStyleActive
+                  : classes.btnStyleNumber
+              }
+            >
+              {pageID}
+            </Button>
+          </Link>
+        ))}
+      </DesktopWrapper>
     </>
   )
 }

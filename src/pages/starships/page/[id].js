@@ -1,11 +1,20 @@
 import Head from 'next/head'
-import Pagination from '../../../components/Pagination'
-import UniNameCard from '../../../components/UniNameCard'
+import { useRouter } from 'next/router'
 import { Grid } from '@mui/material'
-import customStyles from '../../../../styles/Custom.module.css'
+import UniNameCard from '../../../components/UniNameCard'
+import MoreLink from '../../../components/MorePageBtn'
+import SideMenu from '../../../components/Menu/SideMenu'
+import PageIndicator from '../../../components/PageIndicator'
+import Pagination from '../../../components/Pagination'
+import { multiData } from '../../../scripts/DummyData/multi'
+import { globalStyle } from '../../../muiGlobalStyles/style'
 
-export default function Index({ data, API_URL, testo }) {
-  console.log(API_URL)
+export default function Index({ data, API_URL }) {
+  // const router = useRouter()
+  const classes = globalStyle()
+
+  // console.log(multiData)
+
   return (
     <div>
       <Head>
@@ -14,28 +23,38 @@ export default function Index({ data, API_URL, testo }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className={` ${customStyles.ppp}`}>
-        <div className={` ${customStyles.centerContainer}`}>
-          <div className={customStyles.centerContent}>
+      <div className={classes.root}>
+        <Grid container className={classes.wrapper} spacing={0}>
+          <Grid item lg={2} md={2} sm={2} xs={12}>
+            <SideMenu />
+          </Grid>
+          <Grid item lg={10} md={10} sm={10} xs={12}>
             <Pagination
               spaceing='2px'
               next={data.next}
               pageNumber={data.count}
               previous={data.previous}
             />
-            <Grid container>
-              {data.results.map((starship, index) => (
-                <UniNameCard key={index} API_URL={API_URL} data={starship} />
-              ))}
-            </Grid>
+            <div className={classes.uniNameCardWrapper}>
+              <PageIndicator />
+
+              <Grid container spacing={2}>
+                {data.results.map((person) => (
+                  <Grid key={person.name} item lg={6} md={6} sm={6} xs={12}>
+                    <UniNameCard API_URL={API_URL} data={person} />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+
             <Pagination
               spaceing='2px'
               next={data.next}
               pageNumber={data.count}
               previous={data.previous}
             />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
     </div>
   )

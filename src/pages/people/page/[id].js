@@ -5,6 +5,7 @@ import UniNameCard from '../../../components/UniNameCard'
 import MoreLink from '../../../components/MorePageBtn'
 import SideMenu from '../../../components/Menu/SideMenu'
 import PageIndicator from '../../../components/PageIndicator'
+import Pagination from '../../../components/Pagination'
 import { multiData } from '../../../scripts/DummyData/multi'
 import { globalStyle } from '../../../muiGlobalStyles/style'
 
@@ -28,25 +29,30 @@ export default function Index({ data, API_URL }) {
             <SideMenu />
           </Grid>
           <Grid item lg={10} md={10} sm={10} xs={12}>
-            {/* <Pagination
+            <Pagination
               spaceing='2px'
               next={data.next}
               pageNumber={data.count}
               previous={data.previous}
-            /> */}
-            <Grid container spacing={2}>
-              {multiData.map((person) => (
-                <Grid key={person.name} item lg={6} md={6} sm={6} xs={12}>
-                  <UniNameCard API_URL={API_URL} data={person} />
-                </Grid>
-              ))}
-            </Grid>
-            {/* <Pagination
+            />
+            <div className={classes.uniNameCardWrapper}>
+              <PageIndicator />
+
+              <Grid container spacing={2}>
+                {data.results.map((person) => (
+                  <Grid key={person.name} item lg={6} md={6} sm={6} xs={12}>
+                    <UniNameCard API_URL={API_URL} data={person} />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+
+            <Pagination
               spaceing='2px'
               next={data.next}
               pageNumber={data.count}
               previous={data.previous}
-            /> */}
+            />
           </Grid>
         </Grid>
       </div>
@@ -54,26 +60,26 @@ export default function Index({ data, API_URL }) {
   )
 }
 
-// export async function getServerSideProps(context) {
-//   const { id } = context.query
+export async function getServerSideProps(context) {
+  const { id } = context.query
 
-//   const { API_URL } = process.env
+  const { API_URL } = process.env
 
-//   const testo = context.params
+  const testo = context.params
 
-//   const res = await fetch(`${API_URL}/people/?page=${id}`)
-//   const data = await res.json()
+  const res = await fetch(`${API_URL}/people/?page=${id}`)
+  const data = await res.json()
 
-//   if (!data) {
-//     return {
-//       redirect: {
-//         destination: '/',
-//         permanent: false,
-//       },
-//     }
-//   }
+  if (!data) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
 
-//   return {
-//     props: { data, API_URL, testo },
-//   }
-// }
+  return {
+    props: { data, API_URL, testo },
+  }
+}

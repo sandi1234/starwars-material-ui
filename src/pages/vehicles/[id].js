@@ -1,9 +1,8 @@
 import Vehicle from '../../components/Vehicles/Vehicle'
-import customStyles from '../../../styles/Custom.module.css'
 
 const VehicleData = ({ data }) => {
   return (
-    <div className={`${customStyles.ppp}`}>
+    <div>
       <Vehicle data={data} />
     </div>
   )

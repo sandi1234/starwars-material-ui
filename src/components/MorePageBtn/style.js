@@ -1,6 +1,10 @@
 import { makeStyles } from '@mui/styles'
 
 export const moreBtnStyle = makeStyles((theme) => ({
+  btnWrapper: {
+    textAlign: 'center',
+  },
+
   moreBtn: {
     marginTop: '30px',
     color: 'whitesmoke',

@@ -28,9 +28,9 @@ export default function Index({ data, API_URL }) {
             <SideMenu />
           </Grid>
           <Grid item lg={10} md={10} sm={10} xs={12}>
-            {/* <PageIndicator /> */}
+            <PageIndicator />
             <Grid container spacing={2}>
-              {multiData.map((person, index) => (
+              {data.results.map((person, index) => (
                 <Grid key={person.name} item lg={6} md={6} sm={6} xs={12}>
                   <UniNameCard key={index} API_URL={API_URL} data={person} />
                 </Grid>
@@ -44,22 +44,22 @@ export default function Index({ data, API_URL }) {
   )
 }
 
-// export async function getServerSideProps() {
-//   const { API_URL } = process.env
+export async function getServerSideProps() {
+  const { API_URL } = process.env
 
-//   const res = await fetch(`${API_URL}/people`)
-//   const data = await res.json()
+  const res = await fetch(`${API_URL}/people`)
+  const data = await res.json()
 
-//   if (!data) {
-//     return {
-//       redirect: {
-//         destination: '/',
-//         permanent: false,
-//       },
-//     }
-//   }
+  if (!data) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
 
-//   return {
-//     props: { data, API_URL },
-//   }
-// }
+  return {
+    props: { data, API_URL },
+  }
+}
